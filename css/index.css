@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.profile{
+    width: 150px;
+    border-radius: 50%;
+    margin: 25px auto;
+    border: 15px groove orangered;
+}
