@@ -55,6 +55,8 @@ body{
 }
 
 
+
+
 @media screen and (min-width: 960px) {
     body{
         display: flex;
@@ -74,6 +76,12 @@ body{
     p {
         justify-content: flex-end;
         align-items: flex-start;
+    }
+
+     .section2:hover {
+        background-color: rgb(31, 125, 207);
+        color: rgb(238, 221, 221);
+        transition: background-color 0.3s ease;
     }
 }
 
