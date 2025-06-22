@@ -1,3 +1,4 @@
+
   document.addEventListener("DOMContentLoaded", () => {
     const projectSection = document.querySelector("main");
 
@@ -22,3 +23,4 @@
             projectSection.innerHTML += `<p> Couldn't load project data.</p>`;
         });
 });
+
