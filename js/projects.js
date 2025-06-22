@@ -1,26 +1,22 @@
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const projectSection = document.querySelector("main");
+const username = "StephanieJones1015";
 
-    fetch("https://api.github.com/users/StephanieJones1015/repos?sort=updated&direction=desc")
-        .then(response => response.json())
-        .then(repos => {
-            repos.forEach(repo => {
-                const section = document.createElement("section");
-                section.classList.add("section");
+fetch(`https://api.github.com/users/${username}/repos`)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(repos => {
+    repos.forEach(repo => {
+      console.log(`Repo: ${repo.name}, URL: ${repo.html_url}`);
+    });
+  })
+  .catch(error => {
+    console.error("Failed to fetch repositories:", error);
+  });
 
-                section.innerHTML = `
-                    <h2>${repo.name}</h2>
-                    <p>${repo.description || "No description provided."}</p>
-                    <h5><a href="${repo.html_url}" target="_blank">${repo.name}</a></h5>
-                `;
-
-                projectSection.appendChild(section);
-            });
-        })
-        .catch(error => {
-            console.error("Error fetching GitHub repos:", error);
-            projectSection.innerHTML += `<p> Couldn't load project data.</p>`;
-        });
-});
-
+  fetchGitHubrepos('StephanieJones1015').then(repos => {
+    console.log(repos);
+  });
