@@ -1,4 +1,4 @@
-const yourUserNameHere = 'StephanieJones1015'; // Replace with your GitHub username
+const yourUserNameHere = 'StephanieJones1015';
 
 async function getUser(ghUserName) {
     try {
