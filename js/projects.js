@@ -1,50 +1,33 @@
-const yourUserNameHere = 'StephanieJones1015';
+ const username = 'StephanieJones1015'; // Replace with your GitHub username
 
-async function getUser(ghUserName) {
-    try {
-        const res = await fetch(`https://api.github.com/users/${ghUserName}`);
-        const data = await res.json();
-        console.log(data);
-    } catch (error) {
-        console.error(error);
-    }
-}
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchGitHubRepos(username);
+    });
 
-getUser(yourUserNameHere);
+    /**
+     * Fetches repositories from GitHub for the specified user.
+     * @param {string} username - The GitHub username to fetch repositories for.
+     */
+ 
+ async function fetchGitHubRepos(username) {
+      const response = await fetch(`https://api.github.com/users/${username}/repos`);
+      if (!response.ok) {
+        document.getElementById('projects').innerText = 'Failed to load repositories.';
+        return;
+      }
 
-async function getUserRepos(ghUserName) {
-    try {
-        const res = await fetch(`https://api.github.com/users/${ghUserName}/repos`)
-        const data = await res.json();
-        console.log(data);
-    } catch (error) {
-        console.error(error);
-    }
-}
+      const repos = await response.json();
+      const container = document.getElementById('projects');
+      container.innerHTML = ''; // Clear existing content
 
-async function populateRepos() {
-    getUserRepos(aUserNameHere);
-    const res = await fetch(`https://api.github.com/users/${aUserNameHere}/repos`);
-    const data = await res.json();
-    const repoList = document.getElementById('project-section');
-
-    data.forEach(repo => {
-        const listContainer = document.createElement('div');
-        listContainer.classList.add('repo-list-item');
-        const projectTitle = document.createElement('h2');
-        const projectLink = document.createElement('a');
-        projectLink.classList.add('project-links');
-        const projectDescription = document.createElement('p');
-
-        projectLink.href = repo.html_url;
-        projectLink.textContent = repo.name;
-        projectLink.target = "_blank"; // optional: open in new tab
-
-        projectDescription.textContent = repo.description || 'No description available';
-
-        repoList.appendChild(listContainer);
-        listContainer.appendChild(projectTitle);
-        projectTitle.appendChild(projectLink);
-        listContainer.appendChild(projectDescription);
-    });
-}
+      repos.forEach(repo => {
+        const repoDiv = document.createElement('div');
+        repoDiv.className = 'repo';
+        repoDiv.innerHTML = `
+          <h2><a href="${repo.html_url}" target="_blank">${repo.name}</a></h2>
+          <p>${repo.description || 'No description provided.'}</p>
+          <p>⭐ Stars: ${repo.stargazers_count}</p>
+        `;
+        container.appendChild(repoDiv);
+      });
+    }
