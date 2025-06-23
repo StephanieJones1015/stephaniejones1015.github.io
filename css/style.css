@@ -66,8 +66,7 @@ h2 {
     border-radius: 4px;
 }
 #projects-container {
-    display: flex;
-      
+    display: flex;  
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -76,7 +75,6 @@ h2 {
     background-image: url("/images/light\ blue\ background.jpg");
     background-repeat: no-repeat;
     height: 500vh;
-   
     background-size: cover;
     padding: 20px;
     border-radius: 8px; 
