@@ -1,3 +1,5 @@
+fetchData ();
+
 document.addEventListener("DOMContentLoaded", () => {
     const projectSection = document.querySelector("main");
 
@@ -19,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => {
             console.error("Error fetching GitHub repos:", error);
-            projectSection.innerHTML += `<p>Oops! Couldn't load project data.</p>`;
+            projectSection.innerHTML += `<p>Could not load repo.</p>`;
         });
 });
     
