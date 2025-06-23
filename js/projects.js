@@ -50,4 +50,4 @@ async function displayProjects(username) {
   });
 }
 
-displayProjects('StephanieJones1015');
+GetUserRepos('StephanieJones1015');
