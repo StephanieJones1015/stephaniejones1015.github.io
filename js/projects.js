@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const projectSection = document.querySelector("main");
 
     fetch("https://api.github.com/users/StephanieJones1015/repos?sort=updated&direction=desc")
-    .then(response => response.json())
+      .then(response => response.json())
         .then(repos => {
             repos.forEach(repo => {
                 const section = document.createElement("section");
@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => {
             console.error("Error fetching GitHub repos:", error);
-            projectSection.innerHTML += `<p>Could not load repo.</p>`;
+            projectSection.innerHTML += `<p>Oops! Couldn't load project data.</p>`;
         });
 });
+    
