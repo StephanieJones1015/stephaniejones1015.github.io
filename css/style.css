@@ -73,6 +73,7 @@ h2 {
     background-color: rgb(205, 205, 233) ;
     text-align: center;
     background-image: url("/images/light\ blue\ background.jpg");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 500vh;
     background-size: cover;
