@@ -43,11 +43,11 @@ async function displayProjects(username) {
     const projectElement = document.createElement('div');
     projectElement.innerHTML = `
       <h3>${project.name}</h3>
-      <p>${project.description}</p>
+     
       <a href="${project.html_url}">GitHub Link</a>
     `;
     projectsContainer.appendChild(projectElement);
   });
 }
 
-GetUserRepos('StephanieJones1015');
+displayProjects('StephanieJones1015');

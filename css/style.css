@@ -65,3 +65,22 @@ h2 {
     margin: 5px 5px 5px 0;
     border-radius: 4px;
 }
+#projects-container {
+    background-color: rgb(152, 152, 221) ;
+    background-image: url("/images/tech\ background.jpg");
+    padding: 20px;
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    color: black
+}
+
+#summary {
+    background-color: #7b92aa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+
+}
